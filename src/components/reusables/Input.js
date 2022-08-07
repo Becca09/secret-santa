@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({text, handleChange, icon, label, placeholder, num, fieldError, hasIcon=false}) => {
+const Input = ({text, handleChange, placeHolder, icon, label, inputLabel, fieldError, hasIcon=false}) => {
     return (
         <div>
             <div className="input-container">
@@ -8,18 +8,16 @@ const Input = ({text, handleChange, icon, label, placeholder, num, fieldError, h
                     <label>{label}</label>
                 </div>
                 <div className="input-class">
-
-                        <input name={label} type={text} onChange={handleChange}/>
-                        {hasIcon && <img src={icon} alt="input-icon"/> }
-
+                        <input name={inputLabel} type={text} onChange={handleChange} placeholder = {placeHolder} />
+                        {hasIcon && <img src={icon} alt="input-icon"/>}
 
                 </div>
             </div>
-            {/*<div className="input-error-container">*/}
-            {/*    <p className={fieldError[label].error ? "fieldError" : "noFieldError"}>*/}
-            {/*        {fieldError[label].message}*/}
-            {/*    </p>*/}
-            {/*</div>*/}
+            <div className="input-error-container">
+                <p className={fieldError[inputLabel].error ? "fieldError" : "noFieldError"}>
+                    {fieldError[inputLabel].message}
+                </p>
+            </div>
 
         </div>
     );

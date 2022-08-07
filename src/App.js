@@ -1,22 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/landingPage/LandingPage";
+import Registration from "./pages/registrationPage/Registration";
+import {Routes, Route} from "react-router-dom"
+import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
-  return (
-      <Router>
-          <div className="App">
-              <div className="content">
-                  <Switch>
-                      <Route exact path="/">
-                          <LandingPage />
-                      </Route>
-                  </Switch>
-              </div>
+    return (
+        <div className="App">
+            <Routes>
+                <Route path = "/landingPage" element ={<LandingPage />}/>
+                <Route path = "/registration" element ={<Registration/>}/>
+                <Route path = "/dashboard" element ={<Dashboard/>}/>
 
-          </div>
-      </Router>
-  );
+            </Routes>
+        </div>
+
+    );
 }
 
 export default App;

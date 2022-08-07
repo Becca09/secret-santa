@@ -1,0 +1,23 @@
+@media (min-width: 320px) and  (max-width: 1024px){
+ .redBox{
+     margin: 10% 7%;
+     background-color: #BE0305;
+     padding: 3% 5%;
+ }
+    .boxtext{
+        color: white;
+    }
+    .redBox Button{
+        padding: 3% 7%;
+        border: none;
+        border-radius: 7px;
+        font-weight: bold;
+    }
+}
+@media (min-width: 481px)  and  (max-width: 1024px){
+
+}
+
+@media (min-width: 1025px) and  (max-width: 4500px){
+
+}

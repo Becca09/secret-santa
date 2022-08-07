@@ -1,0 +1,29 @@
+import React from 'react';
+
+const Table = () => {
+    return (
+        <div>
+            <div className="table">
+                <table>
+                    <tr>
+                        <th>Company</th>
+                        <th>Contact</th>
+                        <th>Country</th>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Centro comercial Moctezuma</td>
+                        <td>Francisco Chang</td>
+                        <td>Mexico</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    );
+};
+
+export default Table;

@@ -1,0 +1,41 @@
+
+
+@media (min-width: 320px)  and  (max-width: 1024px){
+    .header{
+    margin: 6% 37% 2% 37%;
+}
+.registrationForm{
+    padding: 2% 7%;
+    margin: 20% 10% 0 10%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow: 8px 5px 6px 6px #e6e6e6;
+    box-shadow:  8px 5px 6px 6px #e6e6e6;
+}
+.registrationForm Button{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 4% 3%;
+    cursor: pointer;
+}
+}
+@media (min-width: 1025px) and  (max-width: 4500px){
+    .header{
+        margin: 2% 7% 2% 7%;
+    }
+    .registrationForm{
+        padding: 2% 7%;
+        margin: 2% 10% 0 10%;
+        display: flex;
+        flex-direction: column;
+        -webkit-box-shadow: 8px 5px 6px 6px #e6e6e6;
+        box-shadow:  8px 5px 6px 6px #e6e6e6;
+    }
+    .registrationForm Button{
+        width:20% ;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        padding: 2% 3%;
+        cursor: pointer;
+    }
+}
