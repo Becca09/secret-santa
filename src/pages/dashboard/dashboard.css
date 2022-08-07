@@ -1,23 +1,60 @@
-@media (min-width: 320px) and  (max-width: 1024px){
- .redBox{
-     margin: 10% 7%;
-     background-color: #BE0305;
-     padding: 3% 5%;
- }
-    .boxtext{
+@media (min-width: 320px) and  (max-width: 4500px) {
+    .redBox {
+        margin: 5% 7%;
+        background-color: #BE0305;
+        padding: 3% 5%;
+    }
+
+    .boxtext {
         color: white;
     }
-    .redBox Button{
-        padding: 3% 7%;
+
+    .redBox Button {
+        padding: 1% 5%;
         border: none;
         border-radius: 7px;
         font-weight: bold;
+        cursor: pointer;
     }
-}
-@media (min-width: 481px)  and  (max-width: 1024px){
 
+    .table {
+        margin: 2% 7% 2% 7%;
+    }
+
+    table {
+        width: 100%;
+
+    }
+
+    tbody tr td, th {
+        text-align: left;
+        width: 30%;
+    }
+
+   .tableButton{
+       margin: 1% 7%;
+       padding: 1% 5%;
+       border-radius: 5px;
+       border: none;
+       background-color: #0BD95D;
+       color: black;
+       font-weight: bold;
+       cursor: pointer;
+   }
+
+}
+@media (min-width: 481px){
+.header{
+    margin: 3% 0 1% 7%;
+}
 }
 
 @media (min-width: 1025px) and  (max-width: 4500px){
+    .redBox {
+        margin: 2% 7%;
+    }
 
+    .table {
+        margin: 2% 10% 2% 20%;
+    }
 }
