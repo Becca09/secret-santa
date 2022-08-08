@@ -3,7 +3,10 @@ import LandingPage from "./pages/landingPage/LandingPage";
 import Registration from "./pages/registrationPage/Registration";
 import {Routes, Route} from "react-router-dom"
 import Dashboard from "./pages/dashboard/Dashboard";
+import Modal from "react-modal";
 
+
+Modal.setAppElement('#root')
 function App() {
     return (
         <div className="App">

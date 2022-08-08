@@ -6,8 +6,11 @@ import email from "../../assets/mail.svg"
 import Button from "../../components/reusables/Button";
 import "./landingPage.css"
 import validator from "validator/es";
+import EventCreatedModal from "../../modals/EventCreatedModal";
 
 const LandingPage = () => {
+    const [AccessCodeEmailOpen, setAccessCodeEmailOpen ]= useState(false)
+    const [eventCreatedModalOpen, setEventCreatedModalOpen] = useState(false)
     const [landing_Page, setLanding_page] = useState(true)
     const [values, setValues] = useState({})
     const [fieldError, setFieldError] = useState({
@@ -15,6 +18,19 @@ const LandingPage = () => {
         email: {message: "", error: false},
         date: {message: "", error: false},
     })
+    const submit = () =>{
+        setEventCreatedModalOpen(true)
+    }
+    const closeEventCreatedModal = () => {
+        setEventCreatedModalOpen(false)
+    }
+
+    const submitAccessID = () =>{
+        setAccessCodeEmailOpen(true)
+    }
+    const closeAccessModal = () => {
+        setAccessCodeEmailOpen(false)
+    }
 
     const handleChange = (e) => {
         setValues({
@@ -24,9 +40,7 @@ const LandingPage = () => {
         });
         checkIfFieldIsEmpty(e);
     }
-    const handleClick = () => {
 
-    };
     const checkIfFieldIsEmpty = (e) => {
         switch (e.target.name) {
             case "name_":
@@ -54,7 +68,7 @@ const LandingPage = () => {
                     setFieldError({
                         ...fieldError,
                         [e.target.name]: {
-                            message: "please enter a password",
+                            message: "please enter an email",
                             error: true,
                         },
                     });
@@ -107,6 +121,8 @@ const LandingPage = () => {
 
     return (
         <div>
+            <AccessCodeEmailOpen asscessOpen = {AccessCodeEmailOpen} closeAcess = {closeAccessModal}/>
+        <EventCreatedModal modalOpen={eventCreatedModalOpen} closeModal={closeEventCreatedModal}/>
             <section className="landingPage">
                 <div>
                     <NavBar marker={setLanding_page} markerValue={landing_Page}/>
@@ -117,7 +133,7 @@ const LandingPage = () => {
                             <p>Start your anonymous matching with family, friends and colleagues! Happy gifting........</p>
                         </div>
                         <img src={illustration} width={300} alt="img"/>
-                        <Button onClick={onclick} type={"button"} buttonStyle={"solid"}>Access My Event</Button>
+                        <Button onClick={submitAccessID} type={"button"} buttonStyle={"solid"}>Access My Event</Button>
                     </div>
                     :
                     <div className="input-box">
@@ -144,7 +160,7 @@ const LandingPage = () => {
                             handleChange={handleChange}
                             fieldError={fieldError}
                         />
-                        <Button onClick={handleClick} type={"button"} buttonStyle={"solid"}>Create Event</Button>
+                        <Button onClick={submit} type={"button"} buttonStyle={"solid"}>Create Event</Button>
                     </div>}
             </section>
             {/*<Footer/>*/}

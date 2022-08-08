@@ -11,9 +11,9 @@ import validator from "validator/es";
 const Registration = () => {
     const [values, setValues] = useState({})
     const [fieldError, setFieldError] = useState({
-        name_: {message: "", error: false},
+        name: {message: "", error: false},
         email: {message: "", error: false},
-        wishlist: {message: "", error: false},
+        wishList: {message: "", error: false},
     })
 
     const handleChange = (e) => {
@@ -29,12 +29,12 @@ const Registration = () => {
     // };
     const checkIfFieldIsEmpty_ = (e) => {
         switch (e.target.name) {
-            case "name_":
+            case "name":
                 if (e.target.value === "") {
                     setFieldError({
                         ...fieldError,
                         [e.target.name]: {
-                            message: "kindly fill in your email",
+                            message: "Kindly fill in an input",
                             error: true,
                         },
                     });
@@ -54,7 +54,7 @@ const Registration = () => {
                     setFieldError({
                         ...fieldError,
                         [e.target.name]: {
-                            message: "please enter a password",
+                            message: "please enter an email",
                             error: true,
                         },
                     });
@@ -80,12 +80,12 @@ const Registration = () => {
                     });
                 }
                 break;
-            case "date":
+            case "wishList":
                 if (e.target.value === "") {
                     setFieldError({
                         ...fieldError,
                         [e.target.name]: {
-                            message: "kindly fill in a valid date",
+                            message: "kindly fill in a item",
                             error: true,
                         },
                     });
