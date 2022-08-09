@@ -19,8 +19,7 @@ const Registration = () => {
     })
 
     const validateValues = ()=>{
-        console.log(values);
-        if(values.email && values.name_ && values.date){
+        if(values.email && values.name && values.wishList){
             if(validator.isEmail(values.email) && values.email !== "" && values.name !== "" && values.wishList !== ""){
                 return true;
             } else {
@@ -78,6 +77,7 @@ const Registration = () => {
                             error: true,
                         },
                     });
+                    setFormValid(false)
                 }
                 else if(
                     !validator.isEmail(e.target.value)
@@ -89,6 +89,7 @@ const Registration = () => {
                             error: true,
                         },
                     });
+                    setFormValid(false)
                 }
                 else {
                     setFieldError({
@@ -109,6 +110,7 @@ const Registration = () => {
                             error: true,
                         },
                     });
+                    setFormValid(false)
                 } else {
                     setFieldError({
                         ...fieldError,
