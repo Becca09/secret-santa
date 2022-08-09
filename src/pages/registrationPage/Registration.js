@@ -2,6 +2,7 @@ import React from 'react';
 import logo from "../../assets/logo.png";
 import Button from "../../components/reusables/Button";
 import '../registrationPage/registration.css'
+import "../../components/reusables/resusables.css"
 import Input from "../../components/reusables/Input";
 import {useState} from "react";
 import validator from "validator/es";
@@ -30,7 +31,13 @@ const Registration = () => {
     }
 
     const submit =() =>{
-         validateValues();
+        const  formValid = validateValues();
+        if(formValid){
+            console.log('submitted')
+        }
+        else {
+            console.log("not submitted")
+        }
     }
 
 
@@ -56,7 +63,7 @@ const Registration = () => {
                             message: "Kindly fill in an input",
                             error: true,
                         },
-                    });
+                    }); setFormValid(false);
                 } else {
                     setFieldError({
                         ...fieldError,
