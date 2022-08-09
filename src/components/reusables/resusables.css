@@ -15,6 +15,25 @@
         background-color: #BE0305;
         cursor: pointer;
     }
+    .disabled {
+        font-weight: bold;
+        font-size: 1em;
+        border: none;
+        color: white;
+        padding:1% 5%;
+        border-radius: 10px;
+        background-color: gray;
+        cursor: not-allowed;
+    }
+    .modal-content {
+        color: black;
+        height: 80%;
+        margin-top: 10%;
+        margin-left: 20%;
+        width: 80%;
+    }
+
+
     .footer{
        background-color: burlywood;
         margin-top: 5%;
@@ -192,6 +211,14 @@
     .noFieldError{
         color:transparent;
         margin: 4px 0;
+    }
+
+    .modal-content {
+        color: black;
+        height: 33%;
+        margin-top: 10%;
+        margin-left: 20%;
+        width: 50%;
     }
 
 }

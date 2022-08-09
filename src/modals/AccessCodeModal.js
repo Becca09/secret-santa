@@ -4,7 +4,7 @@ import Input from "../components/reusables/Input";
 import {useState} from "react";
 
 
-const AcessCodeModal = ({accessOpen, closeAccess}) => {
+const AccessCodeModal = ({accessOpen, closeAccess}) => {
     const [values, setValues] = useState({})
     const [fieldError, setFieldError] = useState({
         eventID: {message: "", error: false},
@@ -38,6 +38,8 @@ const AcessCodeModal = ({accessOpen, closeAccess}) => {
                     });
                 }
                 break;
+            default:
+                break;
         }
     }
 
@@ -56,7 +58,7 @@ const AcessCodeModal = ({accessOpen, closeAccess}) => {
                             height: '30%',
                             marginTop: "10%",
                             marginLeft: "20%",
-                            width: "50%"
+                            width: "40%"
 
                         },
 
@@ -82,7 +84,9 @@ const AcessCodeModal = ({accessOpen, closeAccess}) => {
                     />
 
                     <button onClick={() => closeAccess()} style={{
-                        padding: "1%",
+                        padding: "3%",
+                        color: "white",
+                        marginTop: "3%",
                         backgroundColor: "red",
                         fontWeight: "bold",
                         textAlign: "center",
@@ -96,4 +100,4 @@ const AcessCodeModal = ({accessOpen, closeAccess}) => {
     };
 
 
-export default AcessCodeModal;
+export default AccessCodeModal;

@@ -7,19 +7,30 @@ import Button from "../../components/reusables/Button";
 import "./landingPage.css"
 import validator from "validator/es";
 import EventCreatedModal from "../../modals/EventCreatedModal";
+import AccessCodeModal from "../../modals/AccessCodeModal";
+import Modal from "react-modal";
 
+Modal.setAppElement('#root');
 const LandingPage = () => {
     const [AccessCodeEmailOpen, setAccessCodeEmailOpen ]= useState(false)
     const [eventCreatedModalOpen, setEventCreatedModalOpen] = useState(false)
     const [landing_Page, setLanding_page] = useState(true)
     const [values, setValues] = useState({})
+    const [formValid, setFormValid] = useState(true);
     const [fieldError, setFieldError] = useState({
         name_: {message: "", error: false},
         email: {message: "", error: false},
         date: {message: "", error: false},
     })
-    const submit = () =>{
-        setEventCreatedModalOpen(true)
+    const validateValues = ()=>{
+        if(values.email && values.name_ && values.date){
+            if(validator.isEmail(values.email) && values.email !== "" && values.name_ !== "" && values.date !== ""){
+                return true;
+            } else {
+                return  false;
+            }
+        }
+        return false
     }
     const closeEventCreatedModal = () => {
         setEventCreatedModalOpen(false)
@@ -42,6 +53,7 @@ const LandingPage = () => {
     }
 
     const checkIfFieldIsEmpty = (e) => {
+        setFormValid(true);
         switch (e.target.name) {
             case "name_":
                 if (e.target.value === "") {
@@ -52,6 +64,7 @@ const LandingPage = () => {
                             error: true,
                         },
                     });
+                    setFormValid(false)
                 } else {
                     setFieldError({
                         ...fieldError,
@@ -72,6 +85,7 @@ const LandingPage = () => {
                             error: true,
                         },
                     });
+                    setFormValid(false)
                 }
                 else if(
                     !validator.isEmail(e.target.value)
@@ -83,6 +97,7 @@ const LandingPage = () => {
                             error: true,
                         },
                     });
+                    setFormValid(false)
                 }
                 else {
                     setFieldError({
@@ -103,6 +118,7 @@ const LandingPage = () => {
                             error: true,
                         },
                     });
+                    setFormValid(false)
                 } else {
                     setFieldError({
                         ...fieldError,
@@ -118,11 +134,19 @@ const LandingPage = () => {
         }
         if (e.target.value === " ") return true;
     };
+    const submit = () =>{
+        const formValid = validateValues();
+        if(formValid){
+            setEventCreatedModalOpen(true)
+        } else {
+            setFormValid(false);
+        }
 
+    }
     return (
         <div>
-            <AccessCodeEmailOpen asscessOpen = {AccessCodeEmailOpen} closeAcess = {closeAccessModal}/>
-        <EventCreatedModal modalOpen={eventCreatedModalOpen} closeModal={closeEventCreatedModal}/>
+            <AccessCodeModal accessOpen = {AccessCodeEmailOpen} closeAccess = {closeAccessModal}/>
+            <EventCreatedModal modalOpen={eventCreatedModalOpen} closeModal={closeEventCreatedModal}/>
             <section className="landingPage">
                 <div>
                     <NavBar marker={setLanding_page} markerValue={landing_Page}/>
@@ -142,7 +166,7 @@ const LandingPage = () => {
                             inputLabel="name_"
                             label="Event/Group Name"
                             handleChange={handleChange}
-                            fieldError={fieldError}
+                             fieldError={fieldError}
                         />
                         <Input
                             hasIcon
@@ -158,9 +182,15 @@ const LandingPage = () => {
                             inputLabel="date"
                             label="Event Date"
                             handleChange={handleChange}
-                            fieldError={fieldError}
+                             fieldError={fieldError}
                         />
-                        <Button onClick={submit} type={"button"} buttonStyle={"solid"}>Create Event</Button>
+                        <Button
+                            disabled={!formValid}
+                            onClick={submit}
+                            type={"button"}
+                            buttonStyle={(formValid) ? "solid": "disabled"}
+                        >Create Event
+                        </Button>
                     </div>}
             </section>
             {/*<Footer/>*/}

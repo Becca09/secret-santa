@@ -8,13 +8,32 @@ import validator from "validator/es";
 
 
 
+
 const Registration = () => {
     const [values, setValues] = useState({})
+    const [formValid, setFormValid] = useState(true);
     const [fieldError, setFieldError] = useState({
         name: {message: "", error: false},
         email: {message: "", error: false},
         wishList: {message: "", error: false},
     })
+
+    const validateValues = ()=>{
+        console.log(values);
+        if(values.email && values.name_ && values.date){
+            if(validator.isEmail(values.email) && values.email !== "" && values.name !== "" && values.wishList !== ""){
+                return true;
+            } else {
+                return  false;
+            }
+        }
+        return false
+    }
+
+    const submit =() =>{
+         validateValues();
+    }
+
 
     const handleChange = (e) => {
         setValues({
@@ -28,6 +47,7 @@ const Registration = () => {
     //
     // };
     const checkIfFieldIsEmpty_ = (e) => {
+        setFormValid(true);
         switch (e.target.name) {
             case "name":
                 if (e.target.value === "") {
@@ -194,7 +214,12 @@ const Registration = () => {
                         fieldError={fieldError}
                     />
                 </div>
-                <Button onClick={onclick} type={"button"} buttonStyle={"solid"}>Join Event</Button>
+                <Button
+                    disabled={!formValid}
+                    onClick={submit}
+                    type={"button"}
+                    buttonStyle={(formValid) ? "solid": "disabled"}>
+                    Join Event</Button>
             </div>
         </div>
 
