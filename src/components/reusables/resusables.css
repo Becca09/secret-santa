@@ -1,4 +1,4 @@
-@media (min-width: 320px) and  (max-width: 480px){
+@media (min-width: 200px) and  (max-width: 480px){
     .navbar{
         display: flex;
         justify-content: space-between;
@@ -14,6 +14,12 @@
         border-radius: 10px;
         background-color: #BE0305;
         cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .solid:hover{
+        box-shadow: rgba(185, 120, 125, 0.66) 0 5px 15px;
+        padding:7% 5%;
+        background-color: #0BD95D;
     }
     .disabled {
         font-weight: bold;
@@ -25,6 +31,7 @@
         background-color: gray;
         cursor: not-allowed;
     }
+
     .modal-content {
         color: black;
         height: 80%;
@@ -99,6 +106,13 @@
         border-radius: 10px;
         background-color: #BE0305;
         cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .solid:hover{
+        box-shadow: rgba(185, 120, 125, 0.66) 0 5px 15px;
+        background-color: #0BD95D;
+        padding:0 7%;
+        border-radius: 15px;
     }
     .footer{
         background-color: burlywood;
@@ -146,9 +160,10 @@
         margin: 4px 0;
     }
 
+
 }
 
-@media (min-width: 1025px) and  (max-width: 4500px){
+@media (min-width: 1025px) and  (max-width: 5000px){
     .navbar{
         display: flex;
         justify-content: space-between;
@@ -164,6 +179,14 @@
         border-radius: 10px;
         background-color: #BE0305;
         cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .solid:hover{
+        box-shadow: rgba(185, 120, 125, 0.66) 0 5px 15px;
+        background-color: #0BD95D;
+        padding:0 7%;
+        border-radius: 15px;
+
     }
 
     .footer{

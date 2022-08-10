@@ -1,14 +1,12 @@
 import React from 'react';
 import Modal from 'react-modal'
 import ballons from "../assets/ballons.png"
-import Radium, {StyleRoot} from 'radium';
 import "../components/reusables/resusables.css"
 
 
 const EventCreatedModal = ({modalOpen, closeModal}) => {
     return (
          <div>
-            <StyleRoot>
                 <Modal
                     isOpen={modalOpen}
                     className="modal-content"
@@ -66,7 +64,6 @@ const EventCreatedModal = ({modalOpen, closeModal}) => {
                     }}>X
                     </button>
                 </Modal>
-            </StyleRoot>
         </div>
 
     )

@@ -30,15 +30,7 @@ const Registration = () => {
         return false
     }
 
-    const submit =() =>{
-        const  formValid = validateValues();
-        if(formValid){
-            console.log('submitted')
-        }
-        else {
-            console.log("not submitted")
-        }
-    }
+
 
 
     const handleChange = (e) => {
@@ -133,6 +125,15 @@ const Registration = () => {
         }
         if (e.target.value === " ") return true;
     };
+    const submit =() =>{
+        const  formValid = validateValues();
+        if(formValid){
+            console.log(values)
+        }
+        else {
+            setFormValid(false)
+        }
+    }
     return (
         <div className="">
             <div className = "header" >

@@ -1,6 +1,4 @@
-
-
-@media (min-width: 320px)  and  (max-width: 1024px){
+@media (min-width: 200px)  and  (max-width: 1024px){
     .header{
     margin: 6% 37% 2% 37%;
 }
@@ -18,8 +16,13 @@
     padding: 4% 3%;
     cursor: pointer;
 }
+    .registrationForm Button:hover{
+        padding:5% 5%;
+        background-color: #0BD95D;
+
+    }
 }
-@media (min-width: 1025px) and  (max-width: 4500px){
+@media (min-width: 1025px) and  (max-width: 5000px){
     .header{
         margin: 2% 7% 2% 7%;
     }
@@ -38,4 +41,11 @@
         padding: 2% 3%;
         cursor: pointer;
     }
+
+    .registrationForm Button:hover{
+        padding:3% 5%;
+        background-color: #0BD95D;
+
+    }
+
 }

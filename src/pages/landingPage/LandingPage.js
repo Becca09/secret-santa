@@ -177,7 +177,9 @@ const LandingPage = () => {
                             handleChange={handleChange}
                             fieldError={fieldError}
                         />
+
                         <Input
+                            className ="date_"
                             text="date"
                             inputLabel="date"
                             label="Event Date"
