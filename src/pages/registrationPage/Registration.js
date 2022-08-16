@@ -41,9 +41,7 @@ const Registration = () => {
         });
         checkIfFieldIsEmpty_(e);
     }
-    // const handleClick = () => {
-    //
-    // };
+
     const checkIfFieldIsEmpty_ = (e) => {
         setFormValid(true);
         switch (e.target.name) {

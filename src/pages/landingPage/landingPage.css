@@ -48,6 +48,7 @@
         padding: 2%;
         width: 80%;
         border: transparent;
+        background-color: transparent;
     }
 
     .input-container label {
@@ -106,6 +107,7 @@
         }
         .input-container input{
             padding: 2%;
+            background-color: transparent;
         }
         .input-container label{
             font-size: 1.6em;
@@ -169,6 +171,7 @@
             padding: 1%;
             width: 80%;
             border: transparent;
+            background-color: transparent;
         }
         .input-container label{
             font-weight: bold;

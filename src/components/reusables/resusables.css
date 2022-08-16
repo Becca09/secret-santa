@@ -87,6 +87,27 @@
         margin: 4px 0;
     }
 
+    .modal-content {
+        position: absolute;
+        top: 10%;
+        height: 40%;
+        /*left: 5%;*/
+        right: 5%;
+        background-color: #f1eaea;
+        padding: 3%;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.9;
+        background-color: gray;
+
+    }
+
 
 }
 
@@ -160,6 +181,26 @@
         margin: 4px 0;
     }
 
+    .modal-content {
+        position: absolute;
+        top: 20%;
+        height: 40%;
+        /*left: 5%;*/
+        right: 10%;
+        background-color: #f1eaea;
+        padding: 3%;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.9;
+        background-color: gray;
+
+    }
 
 }
 
@@ -237,11 +278,23 @@
     }
 
     .modal-content {
-        color: black;
-        height: 33%;
-        margin-top: 10%;
-        margin-left: 20%;
-        width: 50%;
+        position: absolute;
+        top: 30%;
+        left: 15%;
+        right: 15%;
+        background-color: #f1eaea;
+        padding: 2%;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.9;
+        background-color: gray;
+
     }
 
 }

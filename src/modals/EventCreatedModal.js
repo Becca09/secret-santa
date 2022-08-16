@@ -10,37 +10,16 @@ const EventCreatedModal = ({modalOpen, closeModal}) => {
                 <Modal
                     isOpen={modalOpen}
                     className="modal-content"
+                    overlayClassName = "overlay"
                     onRequestClose={() => closeModal()}
-                    // style={{
-                    //     overlay: {
-                    //         backgroundColor: 'grey'
-                    //     },
-                    //     content: {
-                    //         color: 'black',
-                    //         height: '33%',
-                    //         marginTop: "10%",
-                    //         marginLeft: "20%",
-                    //         width: "50%"
-                    //     },
-                    //
-                    //     "@media (min-width: 320px) and  (max-width: 1024px)": {
-                    //         content: {
-                    //             color: 'black',
-                    //             height: '60%',
-                    //             marginTop: "10%",
-                    //             marginLeft: "10%",
-                    //             width: "80%",
-                    //             overflowX: "none"
-                    //
-                    //
-                    //         },
-                    //     }
-                    //
-                    // }}
+
                 >
                     <div style={{
-                        marginTop: "1%",
-                        marginLeft: "40%"
+                        display: "flex",
+                        justifyContent: "center",
+                        alignContent: "center"
+                        // marginTop: "1%",
+                        // marginLeft: "20%"
                     }}>
                         <img src={ballons} width={170} alt="img"/>
                     </div>

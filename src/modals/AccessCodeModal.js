@@ -48,32 +48,8 @@ const AccessCodeModal = ({accessOpen, closeAccess}) => {
                 <Modal
                     isOpen={accessOpen}
                     onRequestClose={() => closeAccess()}
-
-                    style={{
-                        overlay: {
-                            backgroundColor: 'grey'
-                        },
-                        content: {
-                            color: 'black',
-                            height: '30%',
-                            marginTop: "10%",
-                            marginLeft: "20%",
-                            width: "40%"
-
-                        },
-
-                        "@media (min-width: 320px) and  (max-width: 1024px)": {
-                            content: {
-                                color: 'black',
-                                height: '50%',
-                                marginTop: "10%",
-                                marginLeft: "10%",
-                                width: "80%"
-
-                            },
-                        }
-
-                    }}
+                    className="modal-content"
+                    overlayClassName = "overlay"
                 >
                     <Input
                         text="text"
@@ -82,7 +58,6 @@ const AccessCodeModal = ({accessOpen, closeAccess}) => {
                         handleChange={handleChange}
                         fieldError={fieldError}
                     />
-
                     <button onClick={() => closeAccess()} style={{
                         padding: "3%",
                         color: "white",
