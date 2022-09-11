@@ -24,7 +24,6 @@
         padding: 3% 7%;
     }
     .firstSection Button:hover{
-        padding:7% 5%;
         background-color: #0BD95D;
 
     }
@@ -82,7 +81,6 @@
     }
 
     .input-box Button:hover{
-        padding:7% 5%;
         background-color: #0BD95D;
 
     }
@@ -144,11 +142,6 @@
             padding: 1% 4%;
         }
 
-        .firstSection Button:hover{
-            padding:2% 5%;
-
-        }
-
 
         .input-box{
             margin: 3% 10% 0 10%;
@@ -202,7 +195,6 @@
 
         }
 .input-box button:hover{
-    padding:2% 5%;
     background-color: #0BD95D;
 
 }

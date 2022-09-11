@@ -20,13 +20,10 @@
     }
 
     .redBox Button:hover{
-        box-shadow: rgba(185, 120, 125, 0.66) 0 5px 15px;
         background-color: #0BD95D;
-        padding:2% 7%;
-        border-radius: 15px;
-        color: white;
-        font-weight: bold;
-        font-size: 1.3em;
+        color: red;
+
+
     }
 
 
@@ -62,13 +59,10 @@
    .tableButton:hover{
        text-align: center;
        box-shadow: rgba(185, 120, 125, 0.66) 0 5px 15px;
-       width: 150px;
-       height: 100px;
-       border-radius:50%;
-       color: white;
+       color: red;
        font-weight: bold;
        font-size: 1em;
-       padding: 1% 2%;
+
    }
 
 }

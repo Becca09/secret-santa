@@ -59,7 +59,9 @@ const AccessCodeModal = ({accessOpen, closeAccess}) => {
                         fieldError={fieldError}
                     />
                     <button onClick={() => closeAccess()} style={{
-                        padding: "3%",
+                        cursor:"pointer",
+                        paddingTop: "1%",
+                        paddingBottom: "1%",
                         color: "white",
                         marginTop: "3%",
                         backgroundColor: "red",
@@ -69,6 +71,18 @@ const AccessCodeModal = ({accessOpen, closeAccess}) => {
                         borderRadius: "4px",
                     }}>X
                     </button>
+                    <button style={{
+                        cursor:"pointer",
+                        padding: "1%",
+                        color: "white",
+                        marginLeft: "80%",
+                        backgroundColor: "red",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        border: "none",
+                        borderRadius: "4px",
+                    }}
+                    >Submit</button>
                 </Modal>
             </div>
         );

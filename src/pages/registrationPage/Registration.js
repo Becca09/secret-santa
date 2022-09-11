@@ -16,7 +16,7 @@ const Registration = () => {
     const [fieldError, setFieldError] = useState({
         name: {message: "", error: false},
         email: {message: "", error: false},
-        wishList: {message: "", error: false},
+        wishList: {message: "", error: true},
     })
 
     const validateValues = ()=>{
@@ -89,26 +89,6 @@ const Registration = () => {
                     setFormValid(false)
                 }
                 else {
-                    setFieldError({
-                        ...fieldError,
-                        [e.target.name]: {
-                            message: "",
-                            error: false,
-                        },
-                    });
-                }
-                break;
-            case "wishList":
-                if (e.target.value === "") {
-                    setFieldError({
-                        ...fieldError,
-                        [e.target.name]: {
-                            message: "kindly fill in a item",
-                            error: true,
-                        },
-                    });
-                    setFormValid(false)
-                } else {
                     setFieldError({
                         ...fieldError,
                         [e.target.name]: {
