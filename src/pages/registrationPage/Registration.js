@@ -6,22 +6,25 @@ import "../../components/reusables/resusables.css"
 import Input from "../../components/reusables/Input";
 import {useState} from "react";
 import validator from "validator/es";
+import JoinedSuccessfully from "../../modals/JoinedSuccessfully";
 
 
 
 
 const Registration = () => {
+    const [successfullyJoinedOpen, setSuccessfullyJoinedOpen ]= useState(false)
     const [values, setValues] = useState({})
     const [formValid, setFormValid] = useState(true);
     const [fieldError, setFieldError] = useState({
         name: {message: "", error: false},
         email: {message: "", error: false},
         wishList: {message: "", error: true},
+        gender: {message: "", error: true},
     })
 
     const validateValues = ()=>{
         if(values.email && values.name && values.wishList){
-            if(validator.isEmail(values.email) && values.email !== "" && values.name !== "" && values.wishList !== ""){
+            if(validator.isEmail(values.email) && values.email !== "" && values.name !== "" && values.wishList !== "" && values.gender !== ""){
                 return true;
             } else {
                 return  false;
@@ -31,6 +34,9 @@ const Registration = () => {
     }
 
 
+    const closeJoinedModal = () => {
+        setSuccessfullyJoinedOpen(false)
+    }
 
 
     const handleChange = (e) => {
@@ -40,6 +46,15 @@ const Registration = () => {
 
         });
         checkIfFieldIsEmpty_(e);
+    }
+    const join = () =>{
+        const formValid = validateValues();
+        if(formValid){
+            setSuccessfullyJoinedOpen(true)
+        } else {
+            setFormValid(false);
+        }
+
     }
 
     const checkIfFieldIsEmpty_ = (e) => {
@@ -103,21 +118,13 @@ const Registration = () => {
         }
         if (e.target.value === " ") return true;
     };
-    const submit =() =>{
-        const  formValid = validateValues();
-        if(formValid){
-            console.log(values)
-        }
-        else {
-            setFormValid(false)
-        }
-    }
     return (
         <div className="">
+            <JoinedSuccessfully modalOpen={successfullyJoinedOpen} closeModal={closeJoinedModal}/>
             <div className = "header" >
                 <img src={logo} width={100} height={40}  alt="logo" className="logo"/>
             </div>
-            <div className="firstSection">
+            <div className="firstSection_">
                 <div className="text">
                     <h1>Secret Santa Generator</h1>
                     <p>Kindly Fill the form to get matched........</p>
@@ -137,6 +144,13 @@ const Registration = () => {
                         text="text"
                         inputLabel="name"
                         label="Last Name"
+                        handleChange={handleChange}
+                        fieldError={fieldError}
+                    />
+                    <Input
+                        text="text"
+                        inputLabel="gender"
+                        label="Gender"
                         handleChange={handleChange}
                         fieldError={fieldError}
                     />
@@ -204,7 +218,7 @@ const Registration = () => {
                 </div>
                 <Button
                     disabled={!formValid}
-                    onClick={submit}
+                    onClick={join}
                     type={"button"}
                     buttonStyle={(formValid) ? "solid": "disabled"}>
                     Join Event</Button>

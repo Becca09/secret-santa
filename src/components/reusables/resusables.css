@@ -202,7 +202,7 @@
 
 }
 
-@media (min-width: 1025px) and  (max-width: 5000px){
+@media (min-width: 1025px){
     .navbar{
         display: flex;
         justify-content: space-between;

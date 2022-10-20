@@ -60,7 +60,7 @@ const LandingPage = () => {
                     setFieldError({
                         ...fieldError,
                         [e.target.name]: {
-                            message: "kindly fill in your email",
+                            message: "kindly fill in event name ",
                             error: true,
                         },
                     });
