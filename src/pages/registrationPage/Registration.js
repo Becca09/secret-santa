@@ -7,11 +7,13 @@ import Input from "../../components/reusables/Input";
 import {useState} from "react";
 import validator from "validator/es";
 import JoinedSuccessfully from "../../modals/JoinedSuccessfully";
+import { useParams } from 'react-router-dom';
 
 
 
 
 const Registration = () => {
+    const { eventId } = useParams();
     const [successfullyJoinedOpen, setSuccessfullyJoinedOpen ]= useState(false)
     const [values, setValues] = useState({})
     const [formValid, setFormValid] = useState(true);
@@ -48,6 +50,8 @@ const Registration = () => {
         checkIfFieldIsEmpty_(e);
     }
     const join = () =>{
+        
+        console.log(eventId)
         const formValid = validateValues();
         if(formValid){
             setSuccessfullyJoinedOpen(true)

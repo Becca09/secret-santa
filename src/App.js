@@ -5,11 +5,13 @@ import {Routes, Route} from "react-router-dom"
 import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
+
+    
     return (
         <div className="App">
             <Routes>
                 <Route path = "/" element ={<LandingPage />}/>
-                <Route path = "/registration" element ={<Registration/>}/>
+                <Route path = "/registration/:eventId" element ={<Registration/>}/>
                 <Route path = "/dashboard" element ={<Dashboard/>}/>
 
             </Routes>

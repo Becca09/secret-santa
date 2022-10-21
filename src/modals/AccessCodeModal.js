@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from "react-modal";
 import Input from "../components/reusables/Input";
 import {useState} from "react";
+import { setEventId } from '../utilService';
 
 
 const AccessCodeModal = ({accessOpen, closeAccess}) => {
@@ -9,6 +10,12 @@ const AccessCodeModal = ({accessOpen, closeAccess}) => {
     const [fieldError, setFieldError] = useState({
         eventID: {message: "", error: false},
     })
+
+    const submit = () => {
+      setEventId(values.eventID)
+    }
+
+
     const handleChange = (e) => {
         setValues({
             ...values,
@@ -82,6 +89,7 @@ const AccessCodeModal = ({accessOpen, closeAccess}) => {
                         border: "none",
                         borderRadius: "4px",
                     }}
+                    onClick ={submit}
                     >Submit</button>
                 </Modal>
             </div>
