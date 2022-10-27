@@ -3,9 +3,13 @@ import Modal from "react-modal";
 import Input from "../components/reusables/Input";
 import {useState} from "react";
 import { setEventId } from '../utilService';
+import { useNavigate } from 'react-router-dom';
 
 
 const AccessCodeModal = ({accessOpen, closeAccess}) => {
+
+    const navigate = useNavigate()
+
     const [values, setValues] = useState({})
     const [fieldError, setFieldError] = useState({
         eventID: {message: "", error: false},
@@ -13,6 +17,7 @@ const AccessCodeModal = ({accessOpen, closeAccess}) => {
 
     const submit = () => {
       setEventId(values.eventID)
+      navigate(`/dashboard/${values.eventID}`)
     }
 
 
