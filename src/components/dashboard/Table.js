@@ -1,37 +1,33 @@
 import MatchedSuccess from "../../modals/MatchedSuccessModal";
 import Button from "../reusables/Button";
 import { useParams } from "react-router-dom";
-import React, { useCallback, useState, useEffect } from "react"
-
-
+import React, { useCallback, useState, useEffect } from "react";
 
 const Table = () => {
   const [successfullMatch, setSuccessfullMatch] = useState(false);
 
-  const [eventParticipants, setEventParticipants] = ({})
+  const [eventParticipants, setEventParticipants] = useState(null);
 
   const { id } = useParams();
 
-  
-    
   const participants = useCallback(async () => {
     const options = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-      
       },
     };
 
-    let url =`https://secretesant-a.herokuapp.com/api/v1/secretSanta/list-of-participants/?eventId=${id}`
-    
+    let url = `https://secretesant-a.herokuapp.com/api/v1/secretSanta/list-of-participants/?eventId=${id}`;
+
     const response = await fetch(url, options);
+    console.log("Response", response);
     if (response.ok) {
       const data = await response.json();
+      console.log("Data", data.data);
       setEventParticipants(data.data);
-    
     }
-  },);
+  });
 
   useEffect(() => {
     participants();
@@ -48,10 +44,11 @@ const Table = () => {
           alignItems: "center",
         }}
       >
-       <h1>No participant</h1>
+        <h1>No participant</h1>
       </div>
     );
   }
+
 
 
 
@@ -59,14 +56,31 @@ const Table = () => {
     setSuccessfullMatch(false);
   };
   const generateMatches = async () => {
-    setSuccessfullMatch(true);
+    const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      let url = "https://secretesant-a.herokuapp.com/api/v1/secretSanta/generate";
+         
+    const response = await fetch(url, options);
+    console.log("Response", response);
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      setSuccessfullMatch(true);    
+    }
   };
+    
+
+
+
+
+
   return (
     <div>
-      <MatchedSuccess
-        modalOpen={successfullMatch}
-        closeModal={closeMatchBox}
-      />
+      <MatchedSuccess modalOpen={successfullMatch} closeModal={closeMatchBox} />
       <div className="table">
         <table>
           <tbody>
@@ -75,15 +89,23 @@ const Table = () => {
               <th>Name</th>
               <th>Email</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>{eventParticipants.firstName}</td>
-              <td>{eventParticipants.emailAddress}</td>
-            </tr>     
+            {eventParticipants.map((participant, index) => {
+              return (
+                <tr key={participant.id}>
+                  <td>{index + 1}</td>
+                  <td>{participant.firstName}</td>
+                  <td>{participant.emailAddress}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
-      <Button type={"button"} buttonStyle={"tableButton"} onClick ={generateMatches}>
+      <Button
+        type={"button"}
+        buttonStyle={"tableButton"}
+        onClick={generateMatches}
+      >
         Generate Matches
       </Button>
     </div>

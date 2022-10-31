@@ -51,13 +51,16 @@ const Redbox = () => {
           </div>
         );
       }
+
+
+      
     const copyUrl = () =>{
-        let baseUrl = "http://localhost:3000/registration/"
+        let baseUrl = "http://localhost:3002/registration/"
         let eventId = getEventId()
         console.log(baseUrl + eventId)
         navigator.clipboard
         .writeText(baseUrl+eventId)
-        .then(() => console.log("text copied"))
+        .then(() => alert("copied"))
         .catch(e => console.log(e))
     }
 

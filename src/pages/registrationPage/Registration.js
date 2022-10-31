@@ -12,14 +12,14 @@ import { useParams } from "react-router-dom";
 const Registration = () => {
   const { eventId } = useParams();
   const [successfullyJoinedOpen, setSuccessfullyJoinedOpen] = useState(false);
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({wishList: []});
   const [formValid, setFormValid] = useState(true);
   const [fieldError, setFieldError] = useState({
     firstName: { message: "", error: false },
     lastName: { message: "", error: false },
     email: { message: "", error: false },
-    wishList: { message: "", error: true },
-    gender: { message: "", error: true },
+    wishList: { message: "", error: false },
+    gender: { message: "", error: false },
   });
 
   const validateValues = () => {
@@ -29,7 +29,7 @@ const Registration = () => {
         values.email !== "" &&
         values.firstName !== "" &&
         values.lastName !== "" &&
-        values.wishList !== "" &&
+        values.wishList !== [] &&
         values.gender !== ""
       ) {
         return true;
@@ -44,20 +44,41 @@ const Registration = () => {
     setSuccessfullyJoinedOpen(false);
   };
 
-  const handleChange = (e) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
-    checkIfFieldIsEmpty_(e);
-  };
+
+//   const handleReferencesChange = (e) => {
+//     e.preventDefault();
+//     const newReferences = values.references.push({[e.target.name]: e.target.value})
+//     const newValues = {...values, references: newReferences}
+//     setValues(newValues);
+// }
+
+//   const handleChange = (e) => {
+//     setValues({
+//       ...values,
+//       [e.target.name]: e.target.value,
+//     });
+//     checkIfFieldIsEmpty_(e);
+//   };
+
+const handleChange = (e) => {
+    if( e.target.name === "wishList" ){
+        setValues({...values, [e.target.name] : [...values["wishList"] , e.target.value ]})
+    }else{
+        setValues({...values, [e.target.name] : e.target.value })
+    }
+    checkIfFieldIsEmpty_(e)
+}
+
+
+
+
   const join = async () => {
     const joinDetails = {
       firstName: values.firstName,
       lastName: values.lastName,
-      gender: values.gender,
+      gender: values.gender.toLocaleUpperCase(),
       emailAddress: values.email,
-      wishList: ["book", "car"],
+      wishList: values.wishList,
     };
     console.log(joinDetails)
 
@@ -74,9 +95,12 @@ const Registration = () => {
     try {
       const response = await fetch(url, options);
       const data = await response.json();
-      if (response.ok) {
-        const formValid = validateValues();
+      console.log( "data", data)
 
+      if (response.ok) {
+        console.log(data)
+        alert("joined event")
+        const formValid = validateValues();
         if (formValid) {
           setSuccessfullyJoinedOpen(true);
         } else {
@@ -163,6 +187,7 @@ const Registration = () => {
           });
         }
         break;
+      
       default:
         break;
     }
@@ -171,7 +196,7 @@ const Registration = () => {
   return (
     <div className="">
       <JoinedSuccessfully
-        modalOpen={successfullyJoinedOpen}
+        isOpen={successfullyJoinedOpen}
         closeModal={closeJoinedModal}
       />
       <div className="header">
